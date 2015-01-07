@@ -10,8 +10,9 @@
   <% end %>
 </p>
 <p><%= @article.body %></p>
-<p><%= link_to "delete", article_path(@article), data: {confirm: "Are you sure?" }, method: :delete %> | <%= link_to "edit", edit_article_path(@article) %></p>
-
+<% if current_user %>
+  <p><%= link_to "delete", article_path(@article), data: {confirm: "Are you sure?" }, method: :delete %> | <%= link_to "edit", edit_article_path(@article) %></p>
+<% end %>
 <%= render partial: 'comments/form' %>
 
 <p><%= link_to "<< Back to Articles List", articles_path %></p>
